@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="test.test_Jenkins" tests="5" failures="2" skips="2">
+     <testcase classname="test.test_Jenkins" name="test_function_should_doBlahAndBlah">
+            <failure type="ASSERT FAILED"> Expected 3 Was 4 at line: 33</failure>
+     </testcase>
+     <testcase classname="test.test_Jenkins" name="test_function_should_doAlsoDoBlah">
+            <skipped type="TEST IGNORED">No reason given</skipped>
+     </testcase>
+     <testcase classname="test.test_Jenkins" name="test_always_true"/>
+     <testcase classname="test.test_Jenkins" name="test_always_false">
+            <failure type="ASSERT FAILED"> Expression Evaluated To FALSE at line: 23</failure>
+     </testcase>
+     <testcase classname="test.test_Jenkins" name="test_ignore_message">
+            <skipped type="TEST IGNORED">this is stupid, isn't it?</skipped>
+     </testcase>
+</testsuite>
