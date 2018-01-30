@@ -1,3 +1,12 @@
 node {
-   echo 'Hello World'
+
+  stage ('Checkout') {
+    checkout scm
+  }
+
+  stage ('Tests')
+  {
+    junit '*.xml'
+  }
+
 }
