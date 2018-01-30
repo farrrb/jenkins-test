@@ -7,10 +7,10 @@ node {
   }
 
   stage ('Build') {
-    sh 'mkdir build'
+    bat 'mkdir build'
     dir 'build'
-    sh 'cmake -G"MinGW Makefiles" ..'
-    sh 'cmake --build .'
+    bat 'cmake -G"MinGW Makefiles" ..'
+    bat 'cmake --build .'
   }
 
   stage ('Tests') {
