@@ -22,9 +22,9 @@ pipeline {
     // Build: call cmake & stuff
     stage ('Build') {
       steps {
-        bat 'mkdir build'
-        dir 'build'
-        bat 'CMAKE_HOME/cmake -G "MinGW Makefiles" ..'
+        //bat 'mkdir build'
+        //dir 'build'
+        bat 'CMAKE_HOME/cmake -G "MinGW Makefiles" .'
         bat 'CMAKE_HOME/cmake --build .'
       }
     }
