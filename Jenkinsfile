@@ -5,8 +5,8 @@ pipeline {
   // deploy on any agent(s)
   agent any
 
-  tools {
-    tool name: 'cmake', type: 'hudson.plugins.cmake.CmakeTool'
+  environment {
+    CMAKE_HOME = tool name: 'cmake', type: 'hudson.plugins.cmake.CmakeTool'
   }
 
   // declare stages
@@ -24,8 +24,8 @@ pipeline {
       steps {
         bat 'mkdir build'
         dir 'build'
-        bat 'cmake -G "MinGW Makefiles" ..'
-        bat 'cmake --build .'
+        bat 'CMAKE_HOME/cmake -G "MinGW Makefiles" ..'
+        bat 'CMAKE_HOME/cmake --build .'
       }
     }
 
