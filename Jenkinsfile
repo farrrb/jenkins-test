@@ -8,10 +8,14 @@ pipeline {
   // declare stages
   stages {
 
+    // Checkout: git clone ...
     stage ('Checkout') {
-      checkout scm
+      steps {
+        checkout scm
+      }
     }
 
+    // Build: call cmake & stuff
     stage ('Build') {
       steps {
         bat 'mkdir build'
@@ -21,6 +25,7 @@ pipeline {
       }
     }
 
+    // Tests: xml junit reports
     stage ('Tests') {
       steps {
         junit '*.xml'
