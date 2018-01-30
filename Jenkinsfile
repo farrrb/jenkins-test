@@ -9,7 +9,7 @@ node {
   stage ('Build') {
     bat 'mkdir build'
     dir 'build'
-    bat 'cmake -G"MinGW Makefiles" ..'
+    bat 'cmake -G\"MinGW Makefiles\" ..'
     bat 'cmake --build .'
   }
 
