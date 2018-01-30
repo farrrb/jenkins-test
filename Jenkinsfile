@@ -1,28 +1,37 @@
 #!groovy​
 
-node {
+pipeline {
 
+  // deploy on any agent(s)
   agent any
 
-  stage ('Checkout') {
-    checkout scm
-  }
+  // declare stages
+  stages {
 
-  stage ('Build') {
-    bat 'mkdir build'
-    dir 'build'
-    bat 'cmake -G\"MinGW Makefiles\" ..'
-    bat 'cmake --build .'
-  }
+    stage ('Checkout') {
+      checkout scm
+    }
 
-  stage ('Tests') {
-    junit '*.xml'
-  }
+    stage ('Build') {
+      steps {
+        bat 'mkdir build'
+        dir 'build'
+        bat 'cmake -G\"MinGW Makefiles\" ..'
+        bat 'cmake --build .'
+      }
+    }
 
-  post {
-    always {
-        cleanWs()
+    stage ('Tests') {
+      steps {
+        junit '*.xml'
+      }
     }
   }
 
+  // post build process
+  post {
+    always {
+      cleanWs()
+    }
+  }
 }
