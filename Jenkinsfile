@@ -2,6 +2,8 @@
 
 node {
 
+  agent any
+
   stage ('Checkout') {
     checkout scm
   }
@@ -15,6 +17,12 @@ node {
 
   stage ('Tests') {
     junit '*.xml'
+  }
+
+  post {
+    always {
+        cleanWs()
+    }
   }
 
 }
