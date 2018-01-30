@@ -5,10 +5,6 @@ pipeline {
   // deploy on any agent(s)
   agent any
 
-//  environment {
-//    CMAKE_HOME = tool name: 'cmake', type: 'hudson.plugins.cmake.CmakeTool'
-//  }
-
   // declare stages
   stages {
 
@@ -33,6 +29,10 @@ pipeline {
     // Tests: xml junit reports
     stage ('Tests') {
       steps {
+        dir ('build/test')
+        {
+          bat 'ctest .'
+        }
         junit '*.xml'
       }
     }
