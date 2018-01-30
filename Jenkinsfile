@@ -6,7 +6,7 @@ pipeline {
   agent any
 
   tools {
-    cmake 'cmake'
+    tool name: 'cmake', type: 'hudson.plugins.cmake.CmakeTool'
   }
 
   // declare stages
