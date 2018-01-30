@@ -5,6 +5,10 @@ pipeline {
   // deploy on any agent(s)
   agent any
 
+  tools {
+    cmake 'cmake'
+  }
+
   // declare stages
   stages {
 
