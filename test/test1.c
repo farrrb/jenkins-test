@@ -1,4 +1,5 @@
-#include <unity.h>
+#include "unity.h"
+#include "Module.h"
 
 void test_AverageThreeBytes_should_AverageMidRangeValues(void)
 {

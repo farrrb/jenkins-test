@@ -31,8 +31,8 @@ pipeline {
       steps {
         dir ('build/test')
         {
-          bat 'test1.exe > test_out.txt'
-          bat 'ruby ../../externals/Unity/auto/parse_output.rb -xml test_out.txt'
+          bat 'test1.exe > test1_out.txt'
+          bat 'ruby ../../externals/Unity/auto/parse_output.rb -xml test1_out.txt'
           junit '*.xml'
         }
       }
