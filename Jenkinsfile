@@ -32,9 +32,9 @@ pipeline {
         dir ('build/test')
         {
           bat 'test1.exe > test_out.txt'
-          bat 'ruby ../../externals/Unity/auto/parse_output.rb test_out.txt'
+          bat 'ruby ../../externals/Unity/auto/parse_output.rb -xml test_out.txt'
+          junit '*.xml'
         }
-        junit '*.xml'
       }
     }
   }
