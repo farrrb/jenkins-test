@@ -74,6 +74,11 @@ set(CMAKE_REQUIRED_QUIET ${codecov_FIND_QUIETLY})
 
 get_property(ENABLED_LANGUAGES GLOBAL PROPERTY ENABLED_LANGUAGES)
 foreach (LANG ${ENABLED_LANGUAGES})
+	# Skip resource compiler (Windows)
+	if (${LANG} STREQUAL "RC")
+		break()
+	endif ()
+
 	# Coverage flags are not dependend on language, but the used compiler. So
 	# instead of searching flags foreach language, search flags foreach compiler
 	# used.
