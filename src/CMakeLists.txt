@@ -4,3 +4,5 @@ project(Library C)
 
 add_library(Module STATIC Module.c)
 target_include_directories(Module PUBLIC .)
+
+add_coverage(Module)
