@@ -6,7 +6,7 @@ project(jenkins-test C)
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/externals/CMake-codecov/cmake" ${CMAKE_MODULE_PATH})
 find_package(codecov)
 
-# enable ctest
+# Enable ctest
 enable_testing()
 
 add_subdirectory(externals)

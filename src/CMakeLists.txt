@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.8)
 
-project(Library)
+project(Library C)
 
-add_library(Module STATIC module.c)
+add_library(Module STATIC Module.c)
 target_include_directories(Module PUBLIC .)
