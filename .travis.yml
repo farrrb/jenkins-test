@@ -1,0 +1,35 @@
+# update notifications
+notifications:
+  email:
+    on_success: never
+
+# Enable C support
+language: c
+
+sudo: false
+
+# Compiler selection
+compiler:
+  - gcc
+
+addons:
+  apt:
+    packages:
+      - cmake
+      - lcov
+
+# Build steps
+script:
+  # add 32-bit support to docker-vm
+  #- export C_INCLUDE_PATH=/usr/include/$(gcc -print-multiarch)
+  #- sudo apt-get install gcc-multilib
+  # real build
+  - mkdir build
+  - cd build
+  - cmake .. -DENABLE_COVERAGE=On
+  - cmake --build . --target test
+  - cmake --build . --target gcov
+  - cmake --build . --target lcov
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
