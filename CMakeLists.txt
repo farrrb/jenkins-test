@@ -2,8 +2,8 @@ cmake_minimum_required(VERSION 3.8)
 
 project(jenkins-test C)
 
-# code coverage
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/externals/cmake-codecov/cmake")
+# Enable code coverage
+set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/externals/CMake-codecov/cmake" ${CMAKE_MODULE_PATH})
 find_package(codecov)
 
 # enable ctest
