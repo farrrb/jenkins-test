@@ -4,4 +4,4 @@
 [submodule "externals/CMake-codecov"]
 	path = externals/CMake-codecov
 	url = https://github.com/farrrb/CMake-codecov.git
-	branch = win-fix
+	branch = origin/win-fix
