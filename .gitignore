@@ -1,1 +1,3 @@
 /build/
+/.vs
+/build_Debug_msvc_x86
