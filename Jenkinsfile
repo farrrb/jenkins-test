@@ -41,7 +41,7 @@ pipeline {
     stage ('Coverage') {
       steps {
 
-          publishCoverage adapters: [coberturaAdapter(mergeToOneReport: true, path: 'coverage/example_xml.xml')], sourceFileResolver: sourceFiles('NEVER_STORE')
+          publishCoverage adapters: [coberturaAdapter(mergeToOneReport: true, path: 'coverage/*.xml')], sourceFileResolver: sourceFiles('NEVER_STORE')
       }
     }
   }
