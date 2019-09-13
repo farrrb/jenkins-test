@@ -1,4 +1,4 @@
-#!groovy​
+#!groovyâ€‹
 
 pipeline {
 
@@ -34,7 +34,14 @@ pipeline {
           bat 'test1.exe > test1_out.txt'
           bat 'ruby ../../externals/Unity/auto/parse_output.rb -xml test1_out.txt'
           junit '*.xml'
-        }
+         }
+      }
+    }
+
+    stage ('Coverage') {
+      steps {
+
+          publishCoverage adapters: [coberturaAdapter(mergeToOneReport: true, path: 'coverage/example_xml.xml')], sourceFileResolver: sourceFiles('NEVER_STORE')
       }
     }
   }
