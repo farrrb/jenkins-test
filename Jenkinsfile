@@ -43,7 +43,7 @@ pipeline {
     stage ('Coverage') {
       steps {
 
-          publishCoverage adapters: [coberturaAdapter(mergeToOneReport: true, path: 'build/*.xml')]
+          publishCoverage adapters: [coberturaAdapter(mergeToOneReport: true, path: 'build/*.xml')], sourceFileResolver: sourceFiles('STORE_LAST_BUILD')
       }
     }
   }
