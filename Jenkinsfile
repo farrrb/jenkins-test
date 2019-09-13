@@ -22,6 +22,8 @@ pipeline {
         dir('build') {
           bat 'cmake -G "MinGW Makefiles" -DCMAKE_BUILD_TYPE=Debug ..'
           bat 'cmake --build .'
+          bat 'cmake --build . --target test'
+          bat 'cmake --build . --target coverage'
         }
       }
     }
@@ -41,7 +43,7 @@ pipeline {
     stage ('Coverage') {
       steps {
 
-          publishCoverage adapters: [coberturaAdapter(mergeToOneReport: true, path: 'coverage/*.xml')], sourceFileResolver: sourceFiles('NEVER_STORE')
+          publishCoverage adapters: [coberturaAdapter(mergeToOneReport: true, path: 'build/*.xml')]
       }
     }
   }
